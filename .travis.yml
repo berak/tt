@@ -1,14 +1,9 @@
-os:
-  - linux
-  - osx
-  - windows
-
 language: cpp
 
-compiler:
-  - clang
-  - gcc
+before_script:
+  - git clone https://github.com/tiny-dnn/
 
 script:
+  - ls -l
   - make
   - ./main
