@@ -1,2 +1,2 @@
 all:
-	$(CC) main.cpp -o main
+	$(CXX) main.cpp -o main
