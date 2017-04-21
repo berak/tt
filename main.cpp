@@ -3,6 +3,6 @@
 using namespace std;
 
 int main() {
-	cerr << 13;
+	cerr << 13 << endl;
 	return 0;
 }
