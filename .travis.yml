@@ -17,7 +17,6 @@ script:
   - echo -n OFF -G \"Unix Makefiles\" -DANT_EXECUTABLE=../apache-ant-1.9.9/bin/ant .. >> cm.sh
   - cat cm.sh
   - bash cm.sh
-  - ls -l
   - make
   - make install
   - cd ..
