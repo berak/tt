@@ -1,9 +1,25 @@
 language: cpp
 
 before_script:
-  - git clone https://github.com/tiny-dnn/tiny-dnn
+  - git clone https://github.com/opencv/opencv
+  - git clone https://github.com/opencv/opencv_contrib
+  - curl http://apache.mirror.digionline.de//ant/binaries/apache-ant-1.9.4-bin.tar.gz > ant.tgz
 
 script:
+  - tar zxf ant.tgz
+  - mkdir ocv
+  - cd opencv
+  - mkdir build
+  - cd build
+  - echo -n cmake -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
+  - echo -n OFF -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
+  - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_JASPER=>> cm.sh
+  - echo -n OFF -G \"Unix Makefiles\" -DANT_EXECUTABLE=../apache-ant-1.9.4/bin/ant >> cm.sh
+  - bash cm.sh
   - ls -l
+  - make
+  - make install
+  - cd ..
+  - cd ..
   - make
   - ./main

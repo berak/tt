@@ -1,2 +1,2 @@
 all:
-	$(CXX) main.cpp -o main
+	$(CXX) main.cpp -Iocv/include -Locv/lib -lopencv_core -o main
