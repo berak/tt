@@ -11,7 +11,7 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - echo -n cmake -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
+  - echo -n cmake -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DWITH_IPP=OFF -DBUILD_ZLIB=ON -DWITH_JASPER=>> cm.sh
   - echo -n OFF -G \"Unix Makefiles\" -DANT_EXECUTABLE=../../apache-ant-1.9.9/bin/ant .. >> cm.sh
