@@ -14,7 +14,7 @@ script:
   - echo -n cmake -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_JASPER=>> cm.sh
-  - echo -n OFF -G \"Unix Makefiles\" -DANT_EXECUTABLE=../apache-ant-1.9.4/bin/ant >> cm.sh
+  - echo -n OFF -G \"Unix Makefiles\" -DANT_EXECUTABLE=../apache-ant-1.9.9/bin/ant >> cm.sh
   - bash cm.sh
   - ls -l
   - make
