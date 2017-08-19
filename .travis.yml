@@ -1,5 +1,14 @@
 language: cpp
 
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
+    packages:
+      - cmake
+#      - cmake-data
+
+
 before_script:
   - git clone https://github.com/opencv/opencv
   - git branch
@@ -28,3 +37,4 @@ script:
 
 #deploy:
 #  provider: heroku
+#  app:dooby
