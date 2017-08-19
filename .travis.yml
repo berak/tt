@@ -13,7 +13,7 @@ before_script:
   - git clone https://github.com/opencv/opencv
   - git branch
   - #git clone https://github.com/opencv/opencv_contrib
-  - curl http://apache.mirror.digionline.de/ant/binaries/apache-ant-1.9.9-bin.tar.gz > ant.tgz
+  - #curl http://apache.mirror.digionline.de/ant/binaries/apache-ant-1.9.9-bin.tar.gz > ant.tgz
 
 script:
   - tar zxf ant.tgz
@@ -21,11 +21,12 @@ script:
   - cd opencv
   - mkdir build
   - cd build
+  - #echo  -DANT_EXECUTABLE=../../apache-ant-1.9.9/bin/ant >> cm.sh
   - echo -n cmake -WITH_ITT=OFF -WITH_IPP=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_opencv_dnn=OFF -DBUILD_opencv_flann=OFF -DBUILD_opencv_ml=OFF -DBUILD_opencv_features2d=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_calib3d=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_videostab=OFF -DBUILD_opencv_video=OFF -DBUILD_opencv_apps=OFF -DBUILD_opencv_objdetect= >> cm.sh
   - echo -n OFF -DBUILD_opencv_videoio=OFF -DBUILD_opencv_photo=OFF -DBUILD_opencv_shape=OFF -DBUILD_opencv_superres=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
-  - echo -n OFF -G \"Unix Makefiles\" -DANT_EXECUTABLE=../../apache-ant-1.9.9/bin/ant .. >> cm.sh
+  - echo -n OFF -G \"Unix Makefiles\" .. >> cm.sh
   - cat cm.sh
   - bash cm.sh
   - make -j4
@@ -37,6 +38,6 @@ script:
 
 deploy:
   provider: heroku
-  app:dooby
-  skip_cleanup: true
-  strategy: git
+  app: dooby
+#  skip_cleanup: true
+#  strategy: git
