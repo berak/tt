@@ -39,5 +39,5 @@ script:
 deploy:
   provider: heroku
   app: dooby
-#  skip_cleanup: true
-#  strategy: git
+  strategy: git
+  skip_cleanup: true
