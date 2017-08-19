@@ -35,6 +35,8 @@ script:
   - make
   - ./main
 
-#deploy:
-#  provider: heroku
-#  app:dooby
+deploy:
+  provider: heroku
+  app:dooby
+  skip_cleanup: true
+  strategy: git
