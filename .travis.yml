@@ -11,9 +11,10 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - echo -n cmake -DBUILD_DOCS=OFF  -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
-  - echo -n OFF -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
-  - echo -n ../../ocv -DWITH_IPP=OFF -DBUILD_ZLIB=ON -DWITH_JASPER=>> cm.sh
+  - echo -n cmake -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
+  - echo -n OFF -DBUILD_SHARED_LIBS=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_videostab=OFF -DBUILD_opencv_video=OFF -DBUILD_opencv_objdetect= >> cm.sh
+  - echo -n OFF -DBUILD_opencv_videoio=OFF -DBUILD_opencv_photo=OFF -DBUILD_opencv_shape=OFF -DBUILD_opencv_superres=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
+  - echo -n ../../ocv -DWITH_IPP=OFF -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF -G \"Unix Makefiles\" -DANT_EXECUTABLE=../../apache-ant-1.9.9/bin/ant .. >> cm.sh
   - cat cm.sh
   - bash cm.sh
