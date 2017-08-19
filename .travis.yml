@@ -2,7 +2,7 @@ language: cpp
 
 before_script:
   - git clone https://github.com/opencv/opencv
-  - git checkout 3.2
+  - git checkout 3.2.0
   - #git clone https://github.com/opencv/opencv_contrib
   - curl http://apache.mirror.digionline.de/ant/binaries/apache-ant-1.9.9-bin.tar.gz > ant.tgz
 
@@ -25,3 +25,6 @@ script:
   - cd ..
   - make
   - ./main
+
+#deploy:
+#  provider: heroku
