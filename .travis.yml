@@ -36,9 +36,3 @@ script:
   - make
   - ./main
 
-deploy:
-  provider: heroku
-  api_key: b9176a92-71a7-4d21-8990-ef54bf559fde
-  app: dooby
-  strategy: git
-  skip_cleanup: true
