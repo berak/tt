@@ -11,6 +11,8 @@ addons:
 
 before_script:
   - git clone https://github.com/LaurentBerger/opencv
+  - curl https://raw.githubusercontent.com/LaurentBerger/opencv_extra/metrop2/testdata/ml/waveform_backprop.yml > waveform_backprop.yml
+  - curl https://raw.githubusercontent.com/LaurentBerger/opencv_extra/metrop2/testdata/ml/waveform.data > waveform.data
   - #git clone https://github.com/opencv/opencv
   - #git clone https://github.com/opencv/opencv_contrib
   - #curl http://apache.mirror.digionline.de/ant/binaries/apache-ant-1.9.9-bin.tar.gz > ant.tgz
