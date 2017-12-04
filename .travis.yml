@@ -10,8 +10,9 @@ addons:
 
 
 before_script:
-  - git clone https://github.com/opencv/opencv
-  - git branch
+  - git clone https://github.com/LaurentBerger/opencv
+  - #git clone https://github.com/opencv/opencv
+  - git checkout metrop2
   - #git clone https://github.com/opencv/opencv_contrib
   - #curl http://apache.mirror.digionline.de/ant/binaries/apache-ant-1.9.9-bin.tar.gz > ant.tgz
 
@@ -23,7 +24,7 @@ script:
   - cd build
   - #echo  -DANT_EXECUTABLE=../../apache-ant-1.9.9/bin/ant >> cm.sh
   - echo -n cmake -DBUILD_LIST=core,ml -WITH_ITT=OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
-  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
+  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF  -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF -G \"Unix Makefiles\" .. >> cm.sh
   - cat cm.sh
