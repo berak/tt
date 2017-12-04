@@ -37,9 +37,11 @@ int main() {
     y->predict(testSamples, ry);
 
     for (int i=0; i<rx.rows; i++) {
-    	double n = norm(rx.row(i),ry.row(i));
-    	if (n > 0.001) {
-    		cout << i << " " << n << rx.row(i) << " " << ry.row(i) << endl;
+    	Point p,q;
+    	minMaxLoc(rx.row(i), 0,0,0,&p);
+    	minMaxLoc(ry.row(i), 0,0,0,&p);
+    	if (p.x != q.x) {
+    		cout << i << rx.row(i) << " " << ry.row(i) << endl;
     	}
     }
     double n = cv::norm(rx, ry, NORM_INF);
