@@ -32,6 +32,7 @@ int main() {
     x->train(tdata, ml::ANN_MLP::NO_OUTPUT_SCALE);
     Ptr<ml::ANN_MLP> y = Algorithm::load<ANN_MLP>("waveform_backprop.yml");
     Mat testSamples = tdata->getTestSamples();
+    Mat testResponses = tdata->getTestResponses();
     Mat rx, ry, dst;
     x->predict(testSamples, rx);
     y->predict(testSamples, ry);
@@ -41,7 +42,7 @@ int main() {
     	minMaxLoc(rx.row(i), 0,0,0,&p);
     	minMaxLoc(ry.row(i), 0,0,0,&q);
     	if (p.x != q.x) {
-    		cout << i << p << " " << q << rx.row(i) << " " << ry.row(i) << endl;
+    		cout << i << " " << p.x << " " << q.x << " " << testResponses.row(i) << rx.row(i) << " " << ry.row(i) << endl;
     	}
     }
     double n = cv::norm(rx, ry, NORM_INF);
