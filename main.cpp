@@ -39,9 +39,9 @@ int main() {
     for (int i=0; i<rx.rows; i++) {
     	Point p,q;
     	minMaxLoc(rx.row(i), 0,0,0,&p);
-    	minMaxLoc(ry.row(i), 0,0,0,&p);
+    	minMaxLoc(ry.row(i), 0,0,0,&q);
     	if (p.x != q.x) {
-    		cout << i << rx.row(i) << " " << ry.row(i) << endl;
+    		cout << i << p << " " << q << rx.row(i) << " " << ry.row(i) << endl;
     	}
     }
     double n = cv::norm(rx, ry, NORM_INF);
