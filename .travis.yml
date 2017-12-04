@@ -12,7 +12,6 @@ addons:
 before_script:
   - git clone https://github.com/LaurentBerger/opencv
   - #git clone https://github.com/opencv/opencv
-  - git checkout metrop2
   - #git clone https://github.com/opencv/opencv_contrib
   - #curl http://apache.mirror.digionline.de/ant/binaries/apache-ant-1.9.9-bin.tar.gz > ant.tgz
 
@@ -20,6 +19,7 @@ script:
 #  - tar zxf ant.tgz
   - mkdir ocv
   - cd opencv
+  - git checkout metrop2
   - mkdir build
   - cd build
   - #echo  -DANT_EXECUTABLE=../../apache-ant-1.9.9/bin/ant >> cm.sh
