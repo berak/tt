@@ -21,11 +21,12 @@ class SimpleSample {
 		System.out.println("kz: " + kaz);
 		FacemarkAAM aam = FacemarkAAM.create();
 		System.out.println("aa: " + aam);
-		FacemarkLBF kaz = FacemarkLBF.create();
-		System.out.println("kz: " + kaz);
+		FacemarkLBF lbf = FacemarkLBF.create();
+		System.out.println("lbf: " + lbf);
 		System.out.println("kz: 2");
         try {
-			kaz.loadModel("face_landmark.dat");
+			//kaz.loadModel("face_landmark.dat");
+			aam.loadModel("aam.xml");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -35,7 +36,8 @@ class SimpleSample {
 	        //List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>();
 	        Mat contours = new Mat();
 	        MatOfRect rects = new MatOfRect(new Rect(20,20,100,100));
-			kaz.fit(ocv,rects,contours);
+			//kaz.fit(ocv,rects,contours);
+			aam.fit(ocv,rects,contours);
 			System.out.println(contours);
 			System.out.println(contours.dump());
         } catch (Exception e) {
