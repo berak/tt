@@ -34,6 +34,6 @@ script:
   - cd ..
   - cd ..
   - cp opencv/.cache/data/*.dat face_landmark.dat
-  - ls
+  - ls -l
   - ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
 
