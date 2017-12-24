@@ -31,7 +31,7 @@ class SimpleSample {
 		System.out.println("kz: 3");
         try {
 	        List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>();
-	        List<MatOfRect> rects = new ArrayList<MatOfRect>();
+	        MatOfRect rects = new MatOfRect();
 			kaz.fit(ocv,rects,contours);
         } catch (Exception e) {
             System.out.println(e);
