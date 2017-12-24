@@ -21,7 +21,7 @@ class SimpleSample {
 		System.out.println("kz: " + kaz);
 		System.out.println("kz: 2");
         try {
-			kaz.loadModel("opencv/build/testdata/cv/face/face_landmark.dat");
+			kaz.loadModel("face_landmark.dat");
         } catch (Exception e) {
             System.out.println(e);
         }
