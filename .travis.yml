@@ -27,13 +27,13 @@ script:
   - bash cm.sh
   - make -j4
   - make -j4 install
-  - ls testdata/cv/face
   - ls modules/java/gen
-  - cat modules/java/gen/face.log
   - cat modules/java/gen/face.txt
   - cat modules/java/gen/face+FacemarkKazemi.java
   - cat modules/java/gen/face+Facemark.java
   - cd ..
   - cd ..
+  - cp opencv/.cache/data/*.dat face_landmark.dat
+  - ls
   - ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
 

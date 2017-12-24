@@ -20,11 +20,11 @@ class SimpleSample {
 		FacemarkKazemi kaz = FacemarkKazemi.create();
 		System.out.println("kz: " + kaz);
 		System.out.println("kz: 2");
-        /*try {
-			kaz.loadModel("opencv/build/testdata/cv/face/face_landmark_model.dat");
+        try {
+			kaz.loadModel("opencv/build/testdata/cv/face/face_landmark.dat");
         } catch (Exception e) {
             System.out.println(e);
-        }*/
+        }
 
 		System.out.println("kz: 3");
         try {
