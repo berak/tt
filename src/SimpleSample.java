@@ -17,13 +17,8 @@ class SimpleSample {
 
 		help("org.opencv.face.FacemarkKazemi", "ALL");
 		System.out.println("kz: 1");
-		FacemarkKazemi kaz;
-        try {
-			kaz = FacemarkKazemi.create();
-			System.out.println("kz: " + kaz);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+		FacemarkKazemi kaz = FacemarkKazemi.create();
+		System.out.println("kz: " + kaz);
 		System.out.println("kz: 2");
         try {
 			kaz.loadModel("no.dat");

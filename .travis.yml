@@ -27,7 +27,6 @@ script:
   - bash cm.sh
   - make -j4
   - make -j4 install
-  - cat modules/java/
   - cd ..
   - cd ..
   - ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
