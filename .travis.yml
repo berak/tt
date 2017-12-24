@@ -28,6 +28,10 @@ script:
   - make -j4
   - make -j4 install
   - ls modules/java/gen
+  - cat modules/java/gen/face.log
+  - cat modules/java/gen/face.txt
+  - cat modules/java/gen/face+FacemarkKazemi.java
+  - cat modules/java/gen/face+Facemark.java
   - cd ..
   - cd ..
   - ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
