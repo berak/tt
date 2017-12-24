@@ -27,6 +27,7 @@ script:
   - bash cm.sh
   - make -j4
   - make -j4 install
+  - ls testdata/cv/face
   - ls modules/java/gen
   - cat modules/java/gen/face.log
   - cat modules/java/gen/face.txt
