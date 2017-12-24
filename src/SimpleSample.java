@@ -21,7 +21,7 @@ class SimpleSample {
 		System.out.println("kz: " + kaz);
 		System.out.println("kz: 2");
         try {
-			kaz.loadModel("no.dat");
+			kaz.loadModel("build/testdata/cv/face/face_landmark_model.dat");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -30,8 +30,10 @@ class SimpleSample {
         try {
 	        //List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>();
 	        Mat contours = new Mat();
-	        MatOfRect rects = new MatOfRect();
+	        MatOfRect rects = new MatOfRect(new Rect(20,20,100,100));
 			kaz.fit(ocv,rects,contours);
+			System.out.println(contours);
+			System.out.println(contours.dump());
         } catch (Exception e) {
             System.out.println(e);
         }
