@@ -24,7 +24,7 @@ class SimpleSample {
 		FacemarkLBF lbf = FacemarkLBF.create();
 		System.out.println("lbf: " + lbf);
 		System.out.println("kz: 2");
-        try {
+       /* try {
 			//kaz.loadModel("face_landmark.dat");
 			kaz.loadModel("aam.xml");
 	        Mat contours = new Mat();
@@ -35,7 +35,7 @@ class SimpleSample {
 			System.out.println("kaz " + contours.dump());
         } catch (Exception e) {
             System.out.println(e);
-        }
+        }*/
 
 		System.out.println("kz: 3");
         try {
