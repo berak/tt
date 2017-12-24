@@ -13,10 +13,11 @@ class SimpleSample {
         FaceRecognizer fr = LBPHFaceRecognizer.create();
 		System.out.println("fr: " + fr);
 
+		help("org.opencv.face.FacemarkKazemi", "ALL");
 		System.out.println("kz: 1");
 		FacemarkKazemi kaz;
         try {
-			FacemarkKazemi kaz = FacemarkKazemi.create();
+			kaz = FacemarkKazemi.create();
 			System.out.println("kz: " + kaz);
         } catch (Exception e) {
             System.out.println(e);
@@ -30,7 +31,8 @@ class SimpleSample {
 
 		System.out.println("kz: 3");
         try {
-	        List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>();
+	        //List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>();
+	        Mat contours = new Mat();
 	        MatOfRect rects = new MatOfRect();
 			kaz.fit(ocv,rects,contours);
         } catch (Exception e) {
