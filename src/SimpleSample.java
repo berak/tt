@@ -7,6 +7,8 @@ import org.opencv.imgproc.*;
 
 class SimpleSample {
     static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
+    public static void help(String cls){ ClassSpy.reflect(cls,"CLASS"); }
+    public static void help(String cls,String item){ ClassSpy.reflect(cls,item); }
 
     public static void main(String[] args) {
         Mat ocv = new Mat(300,300,0);
