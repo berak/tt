@@ -19,9 +19,9 @@ class SimpleSample {
 		System.out.println("kz: 1");
 		FacemarkKazemi kaz = FacemarkKazemi.create();
 		System.out.println("kz: " + kaz);
-		FacemarkAAM aam = FacemarkAAM.create();
+		Facemark aam = FacemarkAAM.create();
 		System.out.println("aa: " + aam);
-		FacemarkLBF lbf = FacemarkLBF.create();
+		Facemark lbf = FacemarkLBF.create();
 		System.out.println("lbf: " + lbf);
 		System.out.println("kz: 2");
        /* try {
