@@ -39,7 +39,7 @@ class SimpleSample {
 
 		System.out.println("kz: 3");
         try {
-	        java.util.List<Mat> contours = new ArrayList<Mat>();
+	        java.util.List<Mat> contours = new ArrayList<Mat>(1);
 	        //Mat contours = new Mat();
 	        MatOfRect rects = new MatOfRect(new Rect(20,20,100,100));
 			//kaz.fit(ocv,rects,contours);
