@@ -28,8 +28,6 @@ script:
   - make -j4
   - make -j4 install
   - ls modules/java/gen
-  - cat modules/java/gen/imgproc.cpp
-  - cat modules/java/gen/imgproc+Imgproc.java
   - cat modules/java/gen/face.txt
   - cat modules/java/gen/face.log
   - cat modules/java/gen/face.cpp
