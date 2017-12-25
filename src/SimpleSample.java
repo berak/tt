@@ -27,7 +27,7 @@ class SimpleSample {
        /* try {
 			//kaz.loadModel("face_landmark.dat");
 			kaz.loadModel("aam.xml");
-	        java.util.List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f()>;
+	        java.util.List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>;
 	        //Mat contours = new Mat();
 	        MatOfRect rects = new MatOfRect(new Rect(20,20,100,100));
 			kaz.fit(ocv,rects,contours);
@@ -39,7 +39,7 @@ class SimpleSample {
 
 		System.out.println("kz: 3");
         try {
-	        java.util.List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f()>;
+	        java.util.List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>;
 	        //Mat contours = new Mat();
 	        MatOfRect rects = new MatOfRect(new Rect(20,20,100,100));
 			//kaz.fit(ocv,rects,contours);
