@@ -28,8 +28,6 @@ script:
   - make -j4
   - make -j4 install
   - ls modules/java/gen
-  - cat modules/java/gen/bgsegm+BackgroundSubtractorCNT.java
-  - cat modules/java/gen/video+BackgroundSubtractorMOG.java
   - cd ..
   - cd ..
   - ls -l
