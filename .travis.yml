@@ -11,7 +11,7 @@ addons:
 
 before_script:
   - git clone https://github.com/opencv/opencv
-  - git clone -b face_wrap https://github.com/berak/opencv_contrib
+  - git clone -b bgsegm_java https://github.com/berak/opencv_contrib
 
 script:
   - pwd
@@ -19,7 +19,7 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - echo -n cmake -DBUILD_LIST=core,imgproc,imgcodecs,tracking,photo,objdetect,face,java -WITH_ITT=OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
+  - echo -n cmake -DBUILD_LIST=core,imgproc,imgcodecs,video,objdetect,bgsegm,java -WITH_ITT=OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF  -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -G \"Unix Makefiles\" .. >> cm.sh
@@ -28,14 +28,12 @@ script:
   - make -j4
   - make -j4 install
   - ls modules/java/gen
-  - cat modules/java/gen/face.txt
-  - cat modules/java/gen/face.log
-  - cat modules/java/gen/face.cpp
-  - cat modules/java/gen/face+FacemarkKazemi.java
-  - cat modules/java/gen/face+Facemark.java
+  - cat modules/java/gen/bgsegm.txt
+  - cat modules/java/gen/bgsegm.log
+  - cat modules/java/gen/bgsegm.cpp
   - cd ..
   - cd ..
-  - cp opencv/.cache/data/*.dat face_landmark.dat
+  - #cp opencv/.cache/data/*.dat face_landmark.dat
   - ls -l
   - ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
 
