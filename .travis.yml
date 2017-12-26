@@ -28,6 +28,7 @@ script:
   - make -j4
   - make -j4 install
   - ls modules/java/gen
+  - cat modules/java/gen/features2d.cpp
   - cat modules/java/gen/bgsegm.txt
   - cat modules/java/gen/bgsegm.log
   - cat modules/java/gen/bgsegm+BackgroundSubtractorCNT.java
