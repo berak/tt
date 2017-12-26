@@ -31,7 +31,7 @@ class SimpleSample {
     public static void testMOG() {
         System.err.println("!! running MOG test ! ");
         BackgroundSubtractorMOG bgs = Bgsegm.createBackgroundSubtractorMOG();
-        System.err.println("MOG inst " + inst);
+        System.err.println("MOG inst " + bgs);
 	    Mat img = new Mat(300,300,CvType.CV_8U);
         Mat mask = new Mat();
         bgs.apply(img,mask);
