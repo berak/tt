@@ -28,6 +28,7 @@ script:
   - make -j4
   - make -j4 install
   - ls modules/java/gen
+  - python ../modules/ts/misc/run.py . -a -t java
   - cd ..
   - cd ..
   - ls -l
