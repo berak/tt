@@ -40,7 +40,7 @@ class SimpleSample {
     public static void testGSOC() {
         System.err.println("!! running GSOC test ! ");
         BackgroundSubtractorGSOC bgs = Bgsegm.createBackgroundSubtractorGSOC();
-        System.err.println("GSOC inst " + bgs)
+        System.err.println("GSOC inst " + bgs);
 	    Mat img = new Mat(300,300,CvType.CV_8U);
         Mat mask = new Mat();
         bgs.apply(img,mask);
