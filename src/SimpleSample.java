@@ -5,53 +5,51 @@ import org.opencv.face.*;
 import org.opencv.imgproc.*;
 
 
+import org.opencv.bgsegm.*;
+import org.opencv.bgsegm.Bgsegm.*;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+
+
 class SimpleSample {
     static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
     public static void help(String cls){ ClassSpy.reflect(cls,"CLASS"); }
     public static void help(String cls,String item){ ClassSpy.reflect(cls,item); }
 
+    public static void testCNT() {
+        System.err.println("!! running CNT test ! ")
+        BackgroundSubtractorCNT bgs = Bgsegm.createBackgroundSubtractorCNT();
+        assertNotNull("could not create a CNT instance!", bgs);
+	    Mat img = new Mat(300,300,CvType.CV_8U);
+        Mat mask = new Mat();
+        bgs.apply(img,mask);
+        assertFalse("no mask created from CNT", mask.empty());
+    }
+    public static void testMOG() {
+        System.err.println("!! running MOG test ! ")
+        BackgroundSubtractorMOG bgs = Bgsegm.createBackgroundSubtractorMOG();
+        assertNotNull("could not create a MOG instance!", bgs);
+	    Mat img = new Mat(300,300,CvType.CV_8U);
+        Mat mask = new Mat();
+        bgs.apply(img,mask);
+        assertFalse("no mask created from MOG", mask.empty());
+    }
+    public static void testGSOC() {
+        System.err.println("!! running GSOC test ! ")
+        BackgroundSubtractorGSOC bgs = Bgsegm.createBackgroundSubtractorGSOC();
+        assertNotNull("could not create a GSOC instance!", bgs);
+	    Mat img = new Mat(300,300,CvType.CV_8U);
+        Mat mask = new Mat();
+        bgs.apply(img,mask);
+        System.err.println("GSOC mask " + mask);
+        assertFalse("no mask created from GSOC", mask.empty());
+    }
     public static void main(String[] args) {
-        Mat ocv = new Mat(300,300,0);
-        FaceRecognizer fr = LBPHFaceRecognizer.create();
-		System.out.println("fr: " + fr);
-
-		help("org.opencv.face.FacemarkKazemi", "ALL");
-		System.out.println("kz: 1");
-		FacemarkKazemi kaz = FacemarkKazemi.create();
-		System.out.println("kz: " + kaz);
-		Facemark aam = FacemarkAAM.create();
-		System.out.println("aa: " + aam);
-		Facemark lbf = FacemarkLBF.create();
-		System.out.println("lbf: " + lbf);
-		System.out.println("kz: 2");
-       /* try {
-			//kaz.loadModel("face_landmark.dat");
-			kaz.loadModel("aam.xml");
-	        java.util.List<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>;
-	        //Mat contours = new Mat();
-	        MatOfRect rects = new MatOfRect(new Rect(20,20,100,100));
-			kaz.fit(ocv,rects,contours);
-			System.out.println("kaz " + contours);
-			System.out.println("kaz " + contours.dump());
-        } catch (Exception e) {
-            System.out.println(e);
-        }*/
-
-		System.out.println("kz: 3");
-        try {
-	        ArrayList<MatOfPoint2f> contours = new ArrayList<MatOfPoint2f>();
-	        //Mat contours = new Mat();
-	        MatOfRect rects = new MatOfRect(new Rect(20,20,100,100));
-			//kaz.fit(ocv,rects,contours);
-			aam.loadModel("aam.xml");
-			aam.fit(ocv,rects,contours);
-			System.out.println("aam " + contours);
-			System.out.println("aam " + contours.get(0));
-			System.out.println("aam " + contours.get(0).dump());
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
+    	testCNT();
+    	testMOG();
+    	testGSOC();
         System.exit(0); // to break out of the ant shell.
     }
 }

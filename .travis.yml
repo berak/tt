@@ -32,4 +32,5 @@ script:
   - cd ..
   - cd ..
   - ls -l
+  - ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
 
