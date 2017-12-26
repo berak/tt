@@ -21,12 +21,10 @@ class SimpleSample {
         System.err.println("!! running CNT test ! ");
         BackgroundSubtractorCNT bgs = Bgsegm.createBackgroundSubtractorCNT();
         System.err.println("CNT inst " + bgs);
-        //assertNotNull("could not create a CNT instance!", bgs);
 	    Mat img = new Mat(300,300,CvType.CV_8U);
         Mat mask = new Mat();
         bgs.apply(img,mask);
         System.err.println("CNT mask " + mask);
-        //assertFalse("no mask created from CNT", mask.empty());
     }
     public static void testMOG() {
         System.err.println("!! running MOG test ! ");
