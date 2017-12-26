@@ -19,7 +19,7 @@ class SimpleSample {
     public static void help(String cls,String item){ ClassSpy.reflect(cls,item); }
 
     public static void testCNT() {
-        System.err.println("!! running CNT test ! ")
+        System.err.println("!! running CNT test ! ");
         BackgroundSubtractorCNT bgs = Bgsegm.createBackgroundSubtractorCNT();
         assertNotNull("could not create a CNT instance!", bgs);
 	    Mat img = new Mat(300,300,CvType.CV_8U);
@@ -28,7 +28,7 @@ class SimpleSample {
         assertFalse("no mask created from CNT", mask.empty());
     }
     public static void testMOG() {
-        System.err.println("!! running MOG test ! ")
+        System.err.println("!! running MOG test ! ");
         BackgroundSubtractorMOG bgs = Bgsegm.createBackgroundSubtractorMOG();
         assertNotNull("could not create a MOG instance!", bgs);
 	    Mat img = new Mat(300,300,CvType.CV_8U);
@@ -37,7 +37,7 @@ class SimpleSample {
         assertFalse("no mask created from MOG", mask.empty());
     }
     public static void testGSOC() {
-        System.err.println("!! running GSOC test ! ")
+        System.err.println("!! running GSOC test ! ");
         BackgroundSubtractorGSOC bgs = Bgsegm.createBackgroundSubtractorGSOC();
         assertNotNull("could not create a GSOC instance!", bgs);
 	    Mat img = new Mat(300,300,CvType.CV_8U);
