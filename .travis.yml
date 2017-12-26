@@ -31,7 +31,6 @@ script:
   - cat modules/java/gen/bgsegm.txt
   - cat modules/java/gen/bgsegm.log
   - cat modules/java/gen/bgsegm+BackgroundSubtractorCNT.java
-  - cat modules/java/gen/video+BackgroundSubtractor.java
   - cat modules/java/gen/video+BackgroundSubtractorMOG2.java
   - cd ..
   - cd ..
