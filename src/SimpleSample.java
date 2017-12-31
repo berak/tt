@@ -17,7 +17,7 @@ class SimpleSample {
     public static void help(String cls,String item){ ClassSpy.reflect(cls,item); }
 
     public static void main(String[] args) {
-        MACE mace = Face.MACE.create();
+        MACE mace = MACE.create();
         mace.salt("12325454");
         ArrayList<Mat> imgs = new ArrayList<Mat>();
         for (int i=0; i<20; i++) {
