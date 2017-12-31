@@ -11,7 +11,7 @@ addons:
 
 before_script:
   - git clone https://github.com/opencv/opencv
-  - git clone -b bgsegm_java https://github.com/berak/opencv_contrib
+  - git clone -b face_mace https://github.com/berak/opencv_contrib
 
 script:
   - pwd
@@ -19,7 +19,7 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - echo -n cmake -DBUILD_LIST=core,imgproc,imgcodecs,video,flann,objdetect,bgsegm,java -WITH_ITT=OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
+  - echo -n cmake -DBUILD_LIST=core,imgproc,imgcodecs,video,tracking,photo,objdetect,face,java -WITH_ITT=OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF  -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -G \"Unix Makefiles\" .. >> cm.sh
@@ -28,7 +28,7 @@ script:
   - make -j4
   - make -j4 install
   - ls modules/java/gen
-  - python ../modules/ts/misc/run.py . -a -t java
+  - #python ../modules/ts/misc/run.py . -a -t java
   - cd ..
   - cd ..
   - ls -l
