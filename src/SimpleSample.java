@@ -21,11 +21,11 @@ class SimpleSample {
         mace.salt("12325454");
         ArrayList<Mat> imgs = new ArrayList<Mat>();
         for (int i=0; i<20; i++) {
-            imgs.add(new Mat(64,64,CV_8U));
+            imgs.add(new Mat(64,64,CvType.CV_8U));
         }
         mace.train(imgs);
-        Mat m = new Mat(64,64,CV_8U);
-        bool s = mace.same(m);
+        Mat m = new Mat(64,64,CvType.CV_8U);
+        boolean s = mace.same(m);
         System.exit(0); // to break out of the ant shell.
     }
 }
