@@ -17,6 +17,7 @@ class SimpleSample {
     public static void help(String cls,String item){ ClassSpy.reflect(cls,item); }
 
     public static void main(String[] args) {
+        help("org.opencv.face.MACE", "ALL");
         MACE mace = MACE.create();
         mace.salt("12325454");
         ArrayList<Mat> imgs = new ArrayList<Mat>();
