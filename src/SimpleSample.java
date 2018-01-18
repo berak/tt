@@ -9,11 +9,8 @@ import org.opencv.core.Size;
 
 
 public class SimpleSample {
-    static Mat img;
+    static Mat img = new Mat(300,300,CvType.CV_8U);
 
-    protected static void setUp() {
-        img = new Mat(300,300,CvType.CV_8U);
-    }
 
     public static void testCNT() {
         BackgroundSubtractorCNT bgs = Bgsegm.createBackgroundSubtractorCNT();
@@ -38,7 +35,6 @@ public class SimpleSample {
     }
 
     public static void main(String args[]) {
-        setUp();
         testCNT();
         testMOG();
         testGSOC();
