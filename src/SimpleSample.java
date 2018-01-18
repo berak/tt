@@ -6,38 +6,41 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
-import org.opencv.test.OpenCVTestCase;
-import org.opencv.test.OpenCVTestRunner;
 
 
-public class BgsegmTest extends OpenCVTestCase {
+public class SimpleSample {
     Mat img;
 
-    @Override
     protected void setUp() throws Exception {
-        super.setUp();
         img = new Mat(300,300,CvType.CV_8U);
     }
 
     public void testCNT() {
         BackgroundSubtractorCNT bgs = Bgsegm.createBackgroundSubtractorCNT();
-        assertNotNull("could not create a CNT instance!", bgs);
+        if(bgs == null) throw new Exception("could not create a CNT instance!");
         Mat mask = new Mat();
         bgs.apply(img,mask);
-        assertFalse("no mask created from CNT", mask.empty());
+        if (mask.empty()) throw new Exception("no mask created from CNT");
     }
     public void testMOG() {
         BackgroundSubtractorMOG bgs = Bgsegm.createBackgroundSubtractorMOG();
-        assertNotNull("could not create a MOG instance!", bgs);
+        if(bgs == null) throw new Exception("could not create a MOG instance!");
         Mat mask = new Mat();
         bgs.apply(img,mask);
-        assertFalse("no mask created from MOG", mask.empty());
+        if (mask.empty()) throw new Exception("no mask created from MOG");
     }
     public void testGSOC() {
         BackgroundSubtractorGSOC bgs = Bgsegm.createBackgroundSubtractorGSOC();
-        assertNotNull("could not create a GSOC instance!", bgs);
+        if(bgs == null) throw new Exception("could not create a GSOC instance!");
         Mat mask = new Mat();
         bgs.apply(img,mask);
-        assertFalse("no mask created from GSOC", mask.empty());
+        if (mask.empty()) throw new Exception("no mask created from GSOC");
+    }
+
+    public static void main(String args[]) {
+        setUp();
+        testCNT();
+        testMOG();
+        testGSOC();
     }
 }
