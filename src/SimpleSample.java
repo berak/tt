@@ -1,32 +1,41 @@
+package org.opencv.test.bgsegm;
 
-import java.util.*;
-import org.opencv.core.*;
-import org.opencv.imgproc.*;
-
-
-import org.opencv.face.*;
+import org.opencv.bgsegm.*;
+import org.opencv.bgsegm.Bgsegm.*;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
+import org.opencv.test.OpenCVTestCase;
 
+public class BgsegmTest extends OpenCVTestCase {
+    Mat img;
 
-class SimpleSample {
-    static{ System.loadLibrary(Core.NATIVE_LIBRARY_NAME); }
-    public static void help(String cls){ ClassSpy.reflect(cls,"CLASS"); }
-    public static void help(String cls,String item){ ClassSpy.reflect(cls,item); }
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        img = new Mat(300,300,CvType.CV_8U);
+    }
 
-    public static void main(String[] args) {
-        help("org.opencv.face.MACE", "ALL");
-        MACE mace = MACE.create();
-        mace.salt("12325454");
-        ArrayList<Mat> imgs = new ArrayList<Mat>();
-        for (int i=0; i<20; i++) {
-            imgs.add(new Mat(64,64,CvType.CV_8U));
-        }
-        mace.train(imgs);
-        Mat m = new Mat(64,64,CvType.CV_8U);
-        boolean s = mace.same(m);
-        System.exit(0); // to break out of the ant shell.
+    public void testCNT() {
+        BackgroundSubtractorCNT bgs = Bgsegm.createBackgroundSubtractorCNT();
+        assertNotNull("could not create a CNT instance!", bgs);
+        Mat mask = new Mat();
+        bgs.apply(img,mask);
+        assertFalse("no mask created from CNT", mask.empty());
+    }
+    public void testMOG() {
+        BackgroundSubtractorMOG bgs = Bgsegm.createBackgroundSubtractorMOG();
+        assertNotNull("could not create a MOG instance!", bgs);
+        Mat mask = new Mat();
+        bgs.apply(img,mask);
+        assertFalse("no mask created from MOG", mask.empty());
+    }
+    public void testGSOC() {
+        BackgroundSubtractorGSOC bgs = Bgsegm.createBackgroundSubtractorGSOC();
+        assertNotNull("could not create a GSOC instance!", bgs);
+        Mat mask = new Mat();
+        bgs.apply(img,mask);
+        assertFalse("no mask created from GSOC", mask.empty());
     }
 }
