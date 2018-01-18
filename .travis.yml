@@ -29,7 +29,8 @@ script:
   - bash cm.sh
   - make -j4
   - make -j4 install
-  - #ls modules/java/gen
+  - ls modules/java/gen
+  - cat modules/java/gen/cpp/features2d.inl.hpp
   - #cat modules/java/gen/face+MACE.java
   - #cat modules/java/gen/face.cpp
   - #python ../modules/ts/misc/run.py . -a -t java
