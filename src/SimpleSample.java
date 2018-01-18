@@ -35,8 +35,10 @@ public class SimpleSample {
     }
 
     public static void main(String args[]) {
+        try {
         testCNT();
         testMOG();
         testGSOC();
+        } catch (Exception e) {System.out.println(e);}
     }
 }
