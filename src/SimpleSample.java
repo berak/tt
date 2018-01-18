@@ -11,25 +11,25 @@ import org.opencv.core.Size;
 public class SimpleSample {
     Mat img;
 
-    protected void setUp() throws Exception {
+    protected static void setUp() {
         img = new Mat(300,300,CvType.CV_8U);
     }
 
-    public void testCNT() {
+    public static void testCNT() {
         BackgroundSubtractorCNT bgs = Bgsegm.createBackgroundSubtractorCNT();
         if(bgs == null) throw new Exception("could not create a CNT instance!");
         Mat mask = new Mat();
         bgs.apply(img,mask);
         if (mask.empty()) throw new Exception("no mask created from CNT");
     }
-    public void testMOG() {
+    public static void testMOG() {
         BackgroundSubtractorMOG bgs = Bgsegm.createBackgroundSubtractorMOG();
         if(bgs == null) throw new Exception("could not create a MOG instance!");
         Mat mask = new Mat();
         bgs.apply(img,mask);
         if (mask.empty()) throw new Exception("no mask created from MOG");
     }
-    public void testGSOC() {
+    public static void testGSOC() {
         BackgroundSubtractorGSOC bgs = Bgsegm.createBackgroundSubtractorGSOC();
         if(bgs == null) throw new Exception("could not create a GSOC instance!");
         Mat mask = new Mat();
