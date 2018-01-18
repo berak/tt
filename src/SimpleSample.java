@@ -9,7 +9,7 @@ import org.opencv.core.Size;
 
 
 public class SimpleSample {
-    Mat img;
+    static Mat img;
 
     protected static void setUp() {
         img = new Mat(300,300,CvType.CV_8U);
