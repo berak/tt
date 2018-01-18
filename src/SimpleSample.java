@@ -34,11 +34,11 @@ public class SimpleSample {
         if (mask.empty()) throw new Exception("no mask created from GSOC");
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         try {
-        testCNT();
-        testMOG();
-        testGSOC();
+            testCNT();
+            testMOG();
+            testGSOC();
         } catch (Exception e) {System.out.println(e);}
     }
 }
