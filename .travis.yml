@@ -10,7 +10,7 @@ addons:
 
 
 before_script:
-  - git clone https://github.com/opencv/opencv/tree/2.4
+  - git clone 2.4 https://github.com/opencv/opencv
   - #git clone -b bgsegm_java2 https://github.com/berak/opencv_contrib
 
 script:
@@ -25,7 +25,8 @@ script:
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF  -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF >> cm.sh
-  - #echo -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -G \"Unix Makefiles\" .. >> cm.sh
+  - #echo -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules
+  - echo -G \"Unix Makefiles\" .. >> cm.sh
   - cat cm.sh
   - bash cm.sh
   - make -j4
