@@ -11,7 +11,8 @@ addons:
 
 before_script:
   - git clone https://github.com/opencv/opencv
-  - git clone -b bgsegm_java2 https://github.com/berak/opencv_contrib
+  - git checkout 2.4
+  - #git clone -b bgsegm_java2 https://github.com/berak/opencv_contrib
 
 script:
   - pwd
@@ -24,19 +25,22 @@ script:
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF  -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
-  - echo -n OFF -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -G \"Unix Makefiles\" .. >> cm.sh
+  - echo -n OFF >> cm.sh
+  - #echo -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -G \"Unix Makefiles\" .. >> cm.sh
   - cat cm.sh
   - bash cm.sh
   - make -j4
   - make -j4 install
-  - ls modules/java_bindings_generator/gen
+  - #ls modules/java_bindings_generator/gen
   - #cat modules/java_bindings_generator/gen/cpp/features2d.inl.hpp
-  - cat modules/java/jar/opencv/java/org/opencv/bgsegm/BackgroundSubtractorCNT.java
+  - #cat modules/java/jar/opencv/java/org/opencv/bgsegm/BackgroundSubtractorCNT.java
   - #cat modules/java/gen/face+MACE.java
   - #cat modules/java/gen/face.cpp
   - #python ../modules/ts/misc/run.py . -a -t java
   - cd ..
   - cd ..
   - ls -l
-  - ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
+  - #ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
 
+notifications:
+  email: false
