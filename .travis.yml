@@ -10,7 +10,7 @@ addons:
 
 
 before_script:
-  - git clone -b 2.4 https://github.com/opencv/opencv
+  - git clone https://github.com/opencv/opencv
   - #git clone -b bgsegm_java2 https://github.com/berak/opencv_contrib
 
 script:
