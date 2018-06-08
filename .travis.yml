@@ -3,6 +3,7 @@ language: cpp
 addons:
   apt:
     sources:
+      - libgtk2.0-dev
       - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
     packages:
       - cmake
@@ -23,7 +24,7 @@ script:
   - echo -n cmake -WITH_ITT= >> cm.sh
   - echo -n OFF -DCMAKE_C_FLAGS="-D_FORTIFY_SOURCE=2"  -DCMAKE_CXX_FLAGS="-D_FORTIFY_SOURCE=2"  -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
-  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF  -DCMAKE_INSTALL_PREFIX= >> cm.sh
+  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -WITH_GTK=ON  -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF >> cm.sh
   - #echo -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules
