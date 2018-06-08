@@ -3,9 +3,9 @@ language: cpp
 addons:
   apt:
     sources:
-      - libgtk2.0-dev
       - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
     packages:
+      - libgtk2.0-dev
       - cmake
       - cmake-data
 
