@@ -41,9 +41,11 @@ script:
   - #python ../modules/ts/misc/run.py . -a -t java
   - cd ..
   - cd ..
+  - echo ${PATH}
   - curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
   - ls -l
-  - /home/travis/build/berak/tt/ocv/lib/python2.7/python landmarks.py
+  - export PATH=${PATH}:/home/travis/build/berak/tt/ocv/lib/python2.7/dist-packages
+  - python landmarks.py
   - #ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
 
 notifications:
