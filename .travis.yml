@@ -5,14 +5,14 @@ addons:
     sources:
       - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
     packages:
-      - libgtk3-0-dev
       - cmake
       - cmake-data
-
+      - python-dev
+      - python-numpy
 
 before_script:
-  - git clone https://github.com/opencv/opencv
-  - #git clone -b bgsegm_java2 https://github.com/berak/opencv_contrib
+  - git clone -b 3.4 https://github.com/opencv/opencv
+  - git clone -b face_fix_landmarks_python https://github.com/berak/opencv_contrib
 
 script:
   - pwd
@@ -20,14 +20,13 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - #echo -n cmake -DBUILD_LIST=core,imgproc,imgcodecs,video,calib3d,bgsegm,features2d,flann,highgui,java -WITH_ITT= >> cm.sh
-  - echo -n cmake -WITH_ITT= >> cm.sh
-  - echo -n OFF -DCMAKE_C_FLAGS="-D_FORTIFY_SOURCE=2"  -DCMAKE_CXX_FLAGS="-D_FORTIFY_SOURCE=2"  -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
+  - echo -n cmake -DBUILD_LIST=core,imgproc,imgcodecs,video,photo,flann,face,python,java -WITH_ITT= >> cm.sh
+  - echo -n OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
-  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -WITH_GTK=ON  -DCMAKE_INSTALL_PREFIX= >> cm.sh
+  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF >> cm.sh
-  - #echo -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules
+  - echo -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules/face
   - echo -G \"Unix Makefiles\" .. >> cm.sh
   - cat cm.sh
   - bash cm.sh
