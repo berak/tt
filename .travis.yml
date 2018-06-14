@@ -20,12 +20,15 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-    -DBUILD_LIST=core,calib3d,imgproc,imgcodecs,objdetect,video,photo,flann,face,python2,opencv_python_bindings_generator,java \
-    -WITH_ITT=OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=OFF \
-    -DBUILD_SHARED_LIBS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR=OFF\
-    -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX=../../ocv -DBUILD_ZLIB=ON \
-    -DWITH_WEBP=OFF -DWITH_JASPER=OFF -G \"Unix Makefiles\" ..
+  - echo -n -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=core,calib3d,imgproc,imgcodecs,objdetect,video,photo,flann,face,python2,opencv_python_bindings_generator,java -WITH_ITT= >> cm.sh
+  - echo -n OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
+  - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
+  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
+  - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
+  - echo -n OFF >> cm.sh
+  - echo -G \"Unix Makefiles\" .. >> cm.sh
+  - cat cm.sh
+  - bash cm.sh
   - make -j4
   - make -j4 install
   - #ls modules/java_bindings_generator/gen
