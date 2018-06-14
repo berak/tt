@@ -25,8 +25,7 @@ script:
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
-  - echo -n OFF >> cm.sh
-  - echo -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules >> cm.sh
+  - echo -n OFF -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules >> cm.sh
   - echo -G \"Unix Makefiles\" .. >> cm.sh
   - cat cm.sh
   - bash cm.sh
