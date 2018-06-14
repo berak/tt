@@ -39,7 +39,9 @@ script:
   - #python ../modules/ts/misc/run.py . -a -t java
   - cd ..
   - cd ..
+  - curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
   - ls -l
+  - python landmarks.py
   - #ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
 
 notifications:
