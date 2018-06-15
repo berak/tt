@@ -31,6 +31,7 @@ script:
   - cat cm.sh
   - bash cm.sh
   - make -j8 install
+  - #ls modules/java_bindings_generator/gen
   - #cat modules/python_bindings_generator/pyopencv_generated_types.h
   - #cat modules/java/jar/opencv/java/org/opencv/bgsegm/BackgroundSubtractorCNT.java
   - #cat modules/java/gen/face+MACE.java
