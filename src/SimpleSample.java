@@ -24,6 +24,7 @@ public class SimpleSample {
         MatOfRect faces = new MatOfRect();
         // detect faces
         cascade.detectMultiScale(img, faces);
+        System.out.println(faces);
 
         // setup landmarks detector
         // Facemark fm = Face.createFacemarkKazemi();
@@ -43,6 +44,8 @@ public class SimpleSample {
                 Point p = new Point(dp[0], dp[1]);
                 Imgproc.circle(img,p,2,new Scalar(222),1);
             }
+            System.out.println(lm);
+            System.out.println(lm.dump());
         }
         // save result
         Imgcodecs.imwrite("landmarks.jpg",img);
