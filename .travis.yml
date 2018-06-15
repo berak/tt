@@ -30,8 +30,7 @@ script:
   - echo -G \"Unix Makefiles\" .. >> cm.sh
   - cat cm.sh
   - bash cm.sh
-  - make -j4
-  - make -j4 install
+  - make -j8 install
   - #ls modules/java_bindings_generator/gen
   - #cat modules/python_bindings_generator/pyopencv_generated_types.h
   - #cat modules/java/jar/opencv/java/org/opencv/bgsegm/BackgroundSubtractorCNT.java
