@@ -35,6 +35,7 @@ script:
   - #ls modules/java_bindings_generator/gen
   - #cat modules/python_bindings_generator/pyopencv_generated_types.h
   - #cat modules/java/gen/face+MACE.java
+  - #cat modules/java/gen/face.cpp
   - #python ../modules/ts/misc/run.py . -a -t java
   - cd ..
   - cd ..
