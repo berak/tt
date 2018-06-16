@@ -16,7 +16,7 @@ print ("landmarks LBF",ok, landmarks)
 
 print("testing AAM")
 obj = cv2.face.createFacemarkAAM()
-obj.loadModel("aam.yaml")
+obj.loadModel("aam.xml")
 ok, landmarks = obj.fit(img, faces)
 print ("landmarks AAM",ok, landmarks)
 
