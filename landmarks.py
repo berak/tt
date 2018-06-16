@@ -22,6 +22,6 @@ print ("landmarks AAM",ok, landmarks)
 
 print("testing Kazemi")
 obj = cv2.face.createFacemarkKazemi()
-obj.loadModel("opencv/build/testdata/cv/face/face_landmark_model.dat")
+obj.loadModel("face_landmark_model.dat")
 ok, landmarks = obj.fit(img, faces)
 print ("landmarks Kazemi",ok, landmarks)

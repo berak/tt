@@ -11,6 +11,26 @@ public class SimpleSample {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
+    public static void test(Facemark fm, MatOfRect faces, Mat img, String name) {
+
+        // fit landmarks for each found face
+        ArrayList<MatOfPoint2f> landmarks = new ArrayList<MatOfPoint2f>();
+        fm.fit(img, faces, landmarks);
+
+        // draw them
+        for (int i=0; i<landmarks.size(); i++) {
+            MatOfPoint2f lm = landmarks.get(i);
+            /*
+            for (int j=0; j<lm.rows(); j++) {
+                double [] dp = lm.get(j,0);
+                Point p = new Point(dp[0], dp[1]);
+                Imgproc.circle(img,p,2,new Scalar(222),1);
+            }*/
+            System.out.println(name + " " + lm);
+            System.out.println(lm.dump());
+        }
+    }
+
     public static void main(String[] args) {
         /*if (args.length < 3) {
             System.out.println("use: java Facemark [image file] [cascade file] [model file]");
@@ -27,27 +47,19 @@ public class SimpleSample {
         System.out.println(faces);
 
         // setup landmarks detector
-        // Facemark fm = Face.createFacemarkKazemi();
-       // fm.loadModel("C:\\data\\mdl\\face_landmark_model.dat");
+
         Facemark fm = Face.createFacemarkLBF();
         fm.loadModel("lbfmodel.yaml");
+        test(fm, faces, img, "LBF");
 
-        // fit landmarks for each found face
-        ArrayList<MatOfPoint2f> landmarks = new ArrayList<MatOfPoint2f>();
-        fm.fit(img, faces, landmarks);
+        fm = Face.createFacemarkKazemi();
+        fm.loadModel("face_landmark_model.dat");
+        test(fm, faces, img, "Kazemi");
 
-        // draw them
-        for (int i=0; i<landmarks.size(); i++) {
-            MatOfPoint2f lm = landmarks.get(i);
-            for (int j=0; j<lm.rows(); j++) {
-                double [] dp = lm.get(j,0);
-                Point p = new Point(dp[0], dp[1]);
-                Imgproc.circle(img,p,2,new Scalar(222),1);
-            }
-            System.out.println(lm);
-            System.out.println(lm.dump());
-        }
+        fm = Face.createFacemarkAAM();
+        fm.loadModel("aam.xml");
+        test(fm, faces, img, "AAM");
         // save result
-        Imgcodecs.imwrite("landmarks.jpg",img);
+        //Imgcodecs.imwrite("landmarks.jpg",img);
     }
 }
