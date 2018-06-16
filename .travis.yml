@@ -35,7 +35,6 @@ script:
   - #cat modules/python_bindings_generator/pyopencv_generated_types.h
   - #cat modules/java/jar/opencv/java/org/opencv/bgsegm/BackgroundSubtractorCNT.java
   - #cat modules/java/gen/face+MACE.java
-  - #cat modules/java/gen/face.cpp
   - #python ../modules/ts/misc/run.py . -a -t java
   - cd ..
   - cd ..
