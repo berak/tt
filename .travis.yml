@@ -24,7 +24,7 @@ script:
   - echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=core,calib3d,imgproc,imgcodecs,objdetect,video,photo,flann,face,python2,opencv_python_bindings_generator,java -WITH_ITT= >> cm.sh
   - echo -n OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=OFF -DBUILD_SHARED_LIBS= >> cm.sh
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
-  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
+  - echo -n OFF -DCMAKE_CXX_FLAGS="-fsanitize=undefined -Wall" -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF >> cm.sh
   - echo -G \"Unix Makefiles\" .. >> cm.sh
