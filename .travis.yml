@@ -11,8 +11,8 @@ addons:
       - python-numpy
 
 before_script:
-  - git clone -b 3.4 https://github.com/opencv/opencv
-  - git clone -b 3.4 https://github.com/berak/opencv_contrib
+  - git clone -b 3.4.2 https://github.com/opencv/opencv
+  - git clone -b 3.4.2 https://github.com/berak/opencv_contrib
 
 script:
   - python --version
