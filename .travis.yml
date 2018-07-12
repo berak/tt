@@ -11,8 +11,9 @@ addons:
       - python-numpy
 
 before_script:
-  - git clone -b 3.4 https://github.com/opencv/opencv
-  - git clone -b 3.4 https://github.com/opencv/opencv_contrib
+  - git clone -b java_overloads https://github.com/dkurt/opencv
+  - #git clone -b 3.4 https://github.com/opencv/opencv
+  - #git clone -b 3.4 https://github.com/opencv/opencv_contrib
 
 script:
   - python --version
@@ -21,7 +22,7 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=core,aruco,optflow,calib3d,imgproc,xfeatures2d,features2d,imgcodecs,objdetect,video,photo,flann,face,python2,opencv_python_bindings_generator,java -WITH_ITT= >> cm.sh
+  - echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=core,calib3d,imgproc,imgcodecs,flann,java -WITH_ITT= >> cm.sh
   - echo -n OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=OFF -DBUILD_SHARED_LIBS= >> cm.sh
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
@@ -31,9 +32,9 @@ script:
   - cat cm.sh
   - bash cm.sh
   - make -j8 install
-  - #ls modules/java_bindings_generator/gen
+  - ls modules/java_bindings_generator/gen
   - #cat modules/python_bindings_generator/pyopencv_generated_types.h
-  - #cat modules/java/jar/opencv/java/org/opencv/bgsegm/BackgroundSubtractorCNT.java
+  - cat modules/java/jar/opencv/java/org/opencv/calib3d/Calib3d.java
   - #cat modules/java/gen/face+MACE.java
   - #python ../modules/ts/misc/run.py . -a -t java
   - cd ..
