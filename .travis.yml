@@ -11,8 +11,8 @@ addons:
       - python-numpy
 
 before_script:
-  - git clone -b java_overloads https://github.com/dkurt/opencv
-  - #git clone -b 3.4 https://github.com/opencv/opencv
+  - #git clone -b java_overloads https://github.com/dkurt/opencv
+  - git clone -b java_matofrotatedrect https://github.com/berak/opencv
   - #git clone -b 3.4 https://github.com/opencv/opencv_contrib
 
 script:
@@ -37,7 +37,7 @@ script:
   - #cat modules/python_bindings_generator/pyopencv_generated_types.h
   - cat modules/java/jar/opencv/java/org/opencv/calib3d/Calib3d.java
   - #cat modules/java/gen/face+MACE.java
-  - #python ../modules/ts/misc/run.py . -a -t java
+  - python ../modules/ts/misc/run.py . -a -t java
   - cd ..
   - cd ..
   - #cp opencv/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat face_landmark_model.dat
