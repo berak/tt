@@ -16,8 +16,8 @@ except:
     print("Unexpected error:", sys.exc_info())
 
 
-#rboxes = np.array([[[1,2,3,4,5],[2,1,3,4,6],[4,3,2,1,2]]],np.float32)
-rboxes = [(1,2,3,4,5),(2,1,3,4,6),(4,3,2,1,2)]
+rboxes = np.array([[[1,2,3,4,5],[2,1,3,4,6],[4,3,2,1,2]]],np.float32)
+#rboxes = [(1,2,3,4,5),(2,1,3,4,6),(4,3,2,1,2)]
 conf = np.array([.6, .5, .2], np.float32)
 try:
     indices = cv2.dnn.NMSBoxesRotated(rboxes, conf, .1, .1)
