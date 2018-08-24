@@ -11,7 +11,7 @@ try:
     indices = cv2.dnn.NMSBoxes(boxes, conf, .1, .1)
     print("NMS", indices)
 except:
-    print("Unexpected error:", sys.exc_info()[0])
+    print("Unexpected error:", sys.exc_info())
 
 
 rboxes = np.array([[[1,2,3,4,5],[2,1,3,4,6],[4,3,2,1,2]]],np.float32)
@@ -20,5 +20,5 @@ try:
     indices = cv2.dnn.NMSBoxesRotated(rboxes, conf, .1, .1)
     print("NMSRot", indices)
 except:
-    print("Unexpected error:", sys.exc_info()[0])
+    print("Unexpected error:", sys.exc_info())
 
