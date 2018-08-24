@@ -3,7 +3,7 @@ sys.path.append('/home/travis/build/berak/tt/ocv/lib/python2.7/dist-packages/')
 
 import cv2, numpy as np
 
-help(cv2.dnn.NMSBoxes)
+#help(cv2.dnn.NMSBoxes)
 #help(cv2.dnn.NMSBoxesRotated)
 
 #boxes = np.array([[[1,2,3,4],[2,1,3,4],[4,3,2,1]]],np.int32)
@@ -15,7 +15,7 @@ print("NMS", indices)
 #except:
 #    print("Unexpected error:", sys.exc_info())
 
-"""
+
 rboxes = np.array([[[1,2,3,4,5],[2,1,3,4,6],[4,3,2,1,2]]],np.float32)
 #rboxes = [(1,2,3,4,5),(2,1,3,4,6),(4,3,2,1,2)]
 conf = [.6, .5, .2]
@@ -25,4 +25,4 @@ try:
 except:
     print("Unexpected error:", sys.exc_info())
 
-"""
+
