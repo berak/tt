@@ -12,7 +12,7 @@ addons:
 
 before_script:
   - #git clone -b java_overloads https://github.com/dkurt/opencv
-  - git clone -b python_nmsboxes https://github.com/berak/opencv
+  - git clone -b fix_java_list_string https://github.com/berak/opencv
   - #git clone -b 3.4 https://github.com/opencv/opencv_contrib
 
 script:
