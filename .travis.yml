@@ -14,8 +14,8 @@ before_script:
   - #git clone -b java_overloads https://github.com/dkurt/opencv
   - git clone https://github.com/opencv/opencv
   - git clone https://github.com/opencv/opencv_contrib
-  - git pull https://github.com/berak/opencv_contrib/tree/test_face_test
-  - git pull https://github.com/alalek/opencv_contrib/tree/merge-3.4
+  - git pull https://github.com/berak/opencv_contrib test_face_test
+  - git pull https://github.com/alalek/opencv_contrib merge-3.4
 script:
   - #python --version
   - pwd
