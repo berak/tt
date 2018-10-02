@@ -12,11 +12,12 @@ addons:
 
 before_script:
   - #git clone -b java_overloads https://github.com/dkurt/opencv
-  - git clone -b fix_java_list_string https://github.com/berak/opencv
-  - #git clone -b 3.4 https://github.com/opencv/opencv_contrib
-
+  - git clone https://github.com/opencv/opencv
+  - git clone https://github.com/opencv/opencv_contrib
+  - git pull https://github.com/berak/opencv_contrib/tree/test_face_test
+  - git pull https://github.com/alalek/opencv_contrib/tree/merge-3.4
 script:
-  - python --version
+  - #python --version
   - pwd
   - mkdir ocv
   - cd opencv
@@ -24,9 +25,9 @@ script:
   - cd build
   - #echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=\"core,calib3d,imgproc,imgcodecs,flann,java\" -WITH_ITT= >> cm.sh
   - #echo -n cmake -DBUILD_LIST=\"dnn,core,calib3d,imgproc,imgcodecs,flann,python,python_bindings_generator\" -WITH_ITT= >> cm.sh
-  - echo -n cmake -DBUILD_opencv_ml=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_video=OFF -DBUILD_opencv_videoio=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_objdetect=OFF -WITH_ITT= >> cm.sh
-  - echo -n OFF -DBUILD_opencv_java=ON -DBUILD_opencv_python=OFF -DBUILD_opencv_calib3d=OFF -DBUILD_opencv_superres=OFF -DBUILD_opencv_photo=OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
-  - echo -n OFF -DBUILD_PERF_TESTS=ON -DBUILD_opencv_features2d=OFF  -DBUILD_opencv_imgcodecs=OFF -DBUILD_opencv_flann=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
+  - echo -n cmake -DBUILD_opencv_face=ON -DBUILD_opencv_ml=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_video=ON -DBUILD_opencv_videoio=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_objdetect=ON -WITH_ITT= >> cm.sh
+  - echo -n OFF -DBUILD_opencv_java=OFF -DBUILD_opencv_python=OFF -DBUILD_opencv_calib3d=OFF -DBUILD_opencv_superres=OFF -DBUILD_opencv_photo=ON -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
+  - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_opencv_features2d=OFF  -DBUILD_opencv_imgcodecs=OFF -DBUILD_opencv_flann=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF >> cm.sh
@@ -38,7 +39,7 @@ script:
   - #cat modules/python_bindings_generator/pyopencv_generated_funcs.h
   - #cat modules/java/jar/opencv/java/org/opencv/calib3d/Calib3d.java
   - #cat modules/java/gen/face+MACE.java
-  - python ../modules/ts/misc/run.py . -a -t java
+  - python ../modules/ts/misc/run.py . -a -t face
   - cd ..
   - cd ..
   - #cp opencv/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat face_landmark_model.dat
