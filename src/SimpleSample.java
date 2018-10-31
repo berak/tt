@@ -1,65 +1,35 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.opencv.core.Core;
 import org.opencv.core.*;
-import org.opencv.face.*;
-import org.opencv.imgcodecs.*;
-import org.opencv.imgproc.*;
-import org.opencv.objdetect.*;
-import java.util.*;
-
+import org.opencv.core.MatOfFloat;
+import org.opencv.core.MatOfByte;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+import org.opencv.dnn.*;
+import org.opencv.dnn.Dnn;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
+import org.opencv.core.MatOfInt;
+//import org.opencv.test.OpenCVTestCase;
 
 public class SimpleSample {
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
-    public static void test(Facemark fm, MatOfRect faces, Mat img, String name) {
-
-        // fit landmarks for each found face
-        ArrayList<MatOfPoint2f> landmarks = new ArrayList<MatOfPoint2f>();
-        fm.fit(img, faces, landmarks);
-
-        // draw them
-        for (int i=0; i<landmarks.size(); i++) {
-            MatOfPoint2f lm = landmarks.get(i);
-            /*
-            for (int j=0; j<lm.rows(); j++) {
-                double [] dp = lm.get(j,0);
-                Point p = new Point(dp[0], dp[1]);
-                Imgproc.circle(img,p,2,new Scalar(222),1);
-            }*/
-            System.out.println(name + " " + lm);
-            System.out.println(lm.dump());
-        }
-    }
 
     public static void main(String[] args) {
-        /*if (args.length < 3) {
-            System.out.println("use: java Facemark [image file] [cascade file] [model file]");
-            return;
-        }*/
-        // read the image
-        Mat img = Imgcodecs.imread("david2.jpg");
-
-        // setup face detection
-        CascadeClassifier cascade = new CascadeClassifier("haarcascade_frontalface_alt2.xml");
-        MatOfRect faces = new MatOfRect();
-        // detect faces
-        cascade.detectMultiScale(img, faces);
-        System.out.println(faces);
-
-        // setup landmarks detector
-
-        Facemark fm = Face.createFacemarkLBF();
-        fm.loadModel("lbfmodel.yaml");
-        test(fm, faces, img, "LBF");
-
-        fm = Face.createFacemarkKazemi();
-        fm.loadModel("face_landmark_model.dat");
-        test(fm, faces, img, "Kazemi");
-
-        fm = Face.createFacemarkAAM();
-        fm.loadModel("aam.xml");
-        test(fm, faces, img, "AAM");
-        // save result
-        //Imgcodecs.imwrite("landmarks.jpg",img);
+        RotatedRect a = new RotatedRect(new Point(1,2), new Size(3,4), 5.0);
+        RotatedRect b = new RotatedRect(new Point(2,1), new Size(3,4), 6.0);
+        RotatedRect c = new RotatedRect(new Point(4,3), new Size(2,1), 2.0);
+        MatOfRotatedRect rr = new MatOfRotatedRect(a,b,c);
+        MatOfFloat scores = new MatOfFloat(.6f, .5f, .2f);
+        MatOfInt indices = new MatOfInt();
+        Dnn.NMSBoxesRotated(rr,scores,.1f,.1f, indices);
+        System.out.println(indices);
     }
 }

@@ -12,10 +12,10 @@ addons:
 
 before_script:
   - #git clone -b java_overloads https://github.com/dkurt/opencv
-  - git clone https://github.com/opencv/opencv
-  - git clone https://github.com/opencv/opencv_contrib
+  - git clone -b 18_10_17_4.0 https://github.com/berak/opencv
+  - #git clone https://github.com/opencv/opencv_contrib
   - #git pull https://github.com/berak/opencv_contrib test_face_test
-  - git pull https://github.com/alalek/opencv_contrib merge-3.4
+  - #git pull https://github.com/alalek/opencv_contrib merge-3.4
 script:
   - #python --version
   - pwd
@@ -26,7 +26,7 @@ script:
   - #echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=\"core,calib3d,imgproc,imgcodecs,flann,java\" -WITH_ITT= >> cm.sh
   - #echo -n cmake -DBUILD_LIST=\"dnn,core,calib3d,imgproc,imgcodecs,flann,python,python_bindings_generator\" -WITH_ITT= >> cm.sh
   - echo -n cmake -DBUILD_opencv_face=ON -DBUILD_opencv_ml=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_video=ON -DBUILD_opencv_videoio=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_objdetect=ON -WITH_ITT= >> cm.sh
-  - echo -n OFF -DBUILD_opencv_java=OFF -DBUILD_opencv_python=OFF -DBUILD_opencv_calib3d=OFF -DBUILD_opencv_superres=OFF -DBUILD_opencv_photo=ON -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
+  - echo -n OFF -DBUILD_opencv_java=ON -DBUILD_opencv_python=OFF -DBUILD_opencv_calib3d=OFF -DBUILD_opencv_superres=OFF -DBUILD_opencv_photo=ON -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_opencv_features2d=OFF  -DBUILD_opencv_imgcodecs=OFF -DBUILD_opencv_flann=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
   - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
@@ -45,8 +45,8 @@ script:
   - #cp opencv/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat face_landmark_model.dat
   - #curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
   - ls -l
-  - #echo running ant
-  - #ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
+  - echo running ant
+  - ant -DocvJarDir=ocv/share/OpenCV/java -DocvLibDir=ocv/share/OpenCV/java
   - #export PATH=${PATH}:/home/travis/build/berak/tt/ocv/lib/python2.7/dist-packages
   - #python nms.py
 
