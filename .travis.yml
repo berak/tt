@@ -46,7 +46,7 @@ script:
   - #curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
   - ls -l
   - echo running ant
-  - ant -DocvJarDir=ocv/share/opencv4/java -DocvLibDir=ocv/share/opencv4/java
+  - ant -DocvJarDir=ocv/share/java/opencv4 -DocvLibDir=ocv/share/java/opencv4
   - #export PATH=${PATH}:/home/travis/build/berak/tt/ocv/lib/python2.7/dist-packages
   - #python nms.py
 
