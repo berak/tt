@@ -11,7 +11,7 @@ import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.dnn.*;
 import org.opencv.dnn.Dnn;
-import org.opencv.imgcodecs.Imgcodecs;
+//import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.core.MatOfInt;
 //import org.opencv.test.OpenCVTestCase;
