@@ -29,6 +29,7 @@ public class SimpleSample {
         MatOfRotatedRect rr = new MatOfRotatedRect(a,b,c);
         MatOfFloat scores = new MatOfFloat(.6f, .5f, .2f);
         MatOfInt indices = new MatOfInt();
+        System.out.println(rr.size() + " " + scores.size());
         Dnn.NMSBoxesRotated(rr,scores,.1f,.1f, indices);
         System.out.println(indices);
     }
