@@ -56,7 +56,7 @@ public class SimpleSample {
         float[] buff = new float[5 * count];
         m.get(0, 0, buff);
         for (int i = 0; i < count; i++) {
-            rs.add(new RotatedRect(new Point(buff[5 * i], buff[5 * i + 1]), new Size(buff[5 * i + 2], buff[5 * i + 3]), buff[5 * i + 3]));
+            rs.add(new RotatedRect(new Point(buff[5 * i], buff[5 * i + 1]), new Size(buff[5 * i + 2], buff[5 * i + 3]), buff[5 * i + 4]));
         }
     }
 
