@@ -30,11 +30,11 @@ public class SimpleSample {
             float[] buff = new float[5 * count];
             for (int i = 0; i < count; i++) {
                 RotatedRect r = rs.get(i);
-                buff[4 * i] = (float)r.center.x;
-                buff[4 * i + 1] = (float)r.center.y;
-                buff[4 * i + 2] = (float)r.size.width;
-                buff[4 * i + 3] = (float)r.size.height;
-                buff[4 * i + 4] = (float)r.angle;
+                buff[5 * i] = (float)r.center.x;
+                buff[5 * i + 1] = (float)r.center.y;
+                buff[5 * i + 2] = (float)r.size.width;
+                buff[5 * i + 3] = (float)r.size.height;
+                buff[5 * i + 4] = (float)r.angle;
             }
             res.put(0, 0, buff);
         } else {
@@ -56,7 +56,7 @@ public class SimpleSample {
         float[] buff = new float[5 * count];
         m.get(0, 0, buff);
         for (int i = 0; i < count; i++) {
-            rs.add(new RotatedRect(new Point(buff[4 * i], buff[4 * i + 1]), new Size(buff[4 * i + 2], buff[4 * i + 3]), buff[4 * i + 3]));
+            rs.add(new RotatedRect(new Point(buff[5 * i], buff[5 * i + 1]), new Size(buff[5 * i + 2], buff[5 * i + 3]), buff[5 * i + 3]));
         }
     }
 
@@ -83,7 +83,7 @@ public class SimpleSample {
                       0, 6, 4, 1, 3);
         List<RotatedRect> rectangles = new ArrayList<RotatedRect>();
 
-        Mat_to_vector_Rect(src, rectangles);
+        Mat_to_vector_RotatedRect(src, rectangles);
         List<RotatedRect> truth = new ArrayList<RotatedRect>();
         truth.add(new RotatedRect(new Point(2, 2), new Size(5, 2), 7));
         truth.add(new RotatedRect(new Point(0, 6), new Size(4, 1), 3));
@@ -100,8 +100,12 @@ public class SimpleSample {
     }
 
     public static void assertEquals(String msg, double a, double b) {
+        if (a!=b)
+            System.err.println(msg);
     }
     public static void assertEquals(String msg, float a, float b) {
+        if (a!=b)
+            System.err.println(msg);
     }
 
     public static void assertRotatedRectEquals(RotatedRect expected, RotatedRect actual) {
@@ -110,6 +114,7 @@ public class SimpleSample {
         assertEquals(msg, expected.center.y, actual.center.y);
         assertEquals(msg, expected.size.width, actual.size.width);
         assertEquals(msg, expected.size.height, actual.size.height);
+        assertEquals(msg, expected.angle, actual.angle);
     }
 
     public static void main(String[] args) {
