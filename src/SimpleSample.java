@@ -68,7 +68,7 @@ public class SimpleSample {
         rectangles.add(new RotatedRect(new Point(2, 2), new Size(5, 2), 7));
         rectangles.add(new RotatedRect(new Point(0, 0), new Size(6, 4), 3));
 
-        Mat dst = Converters.vector_RotatedRect_to_Mat(rectangles);
+        Mat dst = vector_RotatedRect_to_Mat(rectangles);
 
         Mat truth = new Mat(2, 1, CvType.CV_32FC5);
         truth.put(0, 0, 2, 2, 5, 2, 7,
@@ -83,7 +83,7 @@ public class SimpleSample {
                       0, 6, 4, 1, 3);
         List<RotatedRect> rectangles = new ArrayList<RotatedRect>();
 
-        Converters.Mat_to_vector_Rect(src, rectangles);
+        Mat_to_vector_Rect(src, rectangles);
         List<RotatedRect> truth = new ArrayList<RotatedRect>();
         truth.add(new RotatedRect(new Point(2, 2), new Size(5, 2), 7));
         truth.add(new RotatedRect(new Point(0, 6), new Size(4, 1), 3));
