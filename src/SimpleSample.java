@@ -25,8 +25,7 @@ public class SimpleSample {
         Mat res;
         int count = (rs != null) ? rs.size() : 0;
         if (count > 0) {
-//            res = new Mat(count, 1, CvType.CV_32FC5);
-            res = new Mat(count, 1, 37);
+            res = new Mat(count, 1, CvType.CV_32FC5);
             float[] buff = new float[5 * count];
             for (int i = 0; i < count; i++) {
                 RotatedRect r = rs.get(i);
@@ -47,8 +46,7 @@ public class SimpleSample {
         if (rs == null)
             throw new java.lang.IllegalArgumentException("rs == null");
         int count = m.rows();
-//        if (CvType.CV_32FC5 != m.type() || m.cols() != 1)
-        if (37 != m.type() || m.cols() != 1)
+        if (CvType.CV_32FC5 != m.type() || m.cols() != 1)
             throw new java.lang.IllegalArgumentException(
                     "CvType.CV_32FC5 != m.type() ||  m.rows()!=1\n" + m);
 

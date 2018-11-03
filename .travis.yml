@@ -25,7 +25,7 @@ script:
   - cd build
   - #echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=\"core,calib3d,imgproc,imgcodecs,flann,java\" -WITH_ITT= >> cm.sh
   - #echo -n cmake -DBUILD_LIST=\"dnn,core,calib3d,imgproc,imgcodecs,flann,python,python_bindings_generator\" -WITH_ITT= >> cm.sh
-  - echo -n cmake -DBUILD_opencv_face=ON -DBUILD_opencv_ml=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_video=ON -DBUILD_opencv_videoio=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_objdetect=ON -WITH_ITT= >> cm.sh
+  - echo -n cmake -DBUILD_opencv_face=ON -DBUILD_opencv_test_java=ON -DBUILD_opencv_ml=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_video=ON -DBUILD_opencv_videoio=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_objdetect=ON -WITH_ITT= >> cm.sh
   - echo -n OFF -DBUILD_opencv_java=ON -DBUILD_opencv_python=OFF -DBUILD_opencv_calib3d=OFF -DBUILD_opencv_superres=OFF -DBUILD_opencv_photo=ON -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_opencv_features2d=OFF -DBUILD_opencv_flann=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
   - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
