@@ -1,3 +1,4 @@
+# this is a travis related oddity, ignore ...
 import sys
 sys.path.append('/home/travis/build/berak/tt/ocv/lib/python2.7/dist-packages/')
 

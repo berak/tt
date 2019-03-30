@@ -37,14 +37,13 @@ script:
   - bash cm.sh
   - make -j8 install
   - #ls modules/java_bindings_generator/gen
-  - #cat modules/python_bindings_generator/pyopencv_generated_funcs.h
+  - cat modules/python_bindings_generator/pyopencv_generated_funcs.h
   - #cat modules/java/jar/opencv/java/org/opencv/calib3d/Calib3d.java
   - #cat modules/java/gen/face+MACE.java
   - #echo run java tests
   - #python ../modules/ts/misc/run.py . -t java
   - cd ..
   - cd ..
-  - #cp opencv/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat face_landmark_model.dat
   - curl https://github.com/opencv/opencv_3rdparty/raw/contrib_face_alignment_20170818/face_landmark_model.dat > face_landmark_model.dat
   - curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
   - ls -l
