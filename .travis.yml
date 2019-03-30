@@ -25,7 +25,7 @@ script:
   - mkdir build
   - cd build
   - #echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=\"core,calib3d,imgproc,imgcodecs,flann,java\" -WITH_ITT= >> cm.sh
-  - echo -n cmake -DBUILD_LIST=\"face,plot,dnn,core,calib3d,imgproc,imgcodecs,flann,python,python_bindings_generator\" -WITH_ITT= >> cm.sh
+  - echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=\"face,plot,dnn,core,calib3d,imgproc,imgcodecs,flann,python2,python,python_bindings_generator\" -WITH_ITT= >> cm.sh
   - #echo -n cmake -DBUILD_opencv_face=ON -DBUILD_opencv_test_java=ON -DBUILD_opencv_ml=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_video=ON -DBUILD_opencv_videoio=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_objdetect=ON -WITH_ITT= >> cm.sh
   - echo -n OFF -DBUILD_opencv_java=OFF -DBUILD_opencv_python=ON -DBUILD_opencv_calib3d=OFF -DBUILD_opencv_superres=OFF -DBUILD_opencv_photo=ON -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
   - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_opencv_features2d=OFF -DBUILD_opencv_flann=ON -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
@@ -40,11 +40,12 @@ script:
   - #cat modules/python_bindings_generator/pyopencv_generated_funcs.h
   - #cat modules/java/jar/opencv/java/org/opencv/calib3d/Calib3d.java
   - #cat modules/java/gen/face+MACE.java
-  - echo run java tests
-  - python ../modules/ts/misc/run.py . -t java
+  - #echo run java tests
+  - #python ../modules/ts/misc/run.py . -t java
   - cd ..
   - cd ..
-  - cp opencv/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat face_landmark_model.dat
+  - #cp opencv/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat face_landmark_model.dat
+  - curl https://github.com/opencv/opencv_3rdparty/tree/contrib_face_alignment_20170818 > face_landmark_model.dat
   - curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
   - ls -l
   - echo running landmarks
