@@ -14,7 +14,7 @@ before_script:
   - #git clone -b java_overloads https://github.com/dkurt/opencv
   - #git clone -b java_MatOfRotatedRect_utils https://github.com/berak/opencv
   - git clone https://github.com/tegusi/opencv
-  - git clone https://github.com/opencv/opencv_contrib
+  - git clone https://github.com/tegusi/opencv_contrib
   - #git pull https://github.com/berak/opencv_contrib test_face_test
   - #git pull https://github.com/alalek/opencv_contrib merge-3.4
 script:
@@ -37,7 +37,7 @@ script:
   - bash cm.sh
   - make -j8 install
   - #ls modules/java_bindings_generator/gen
-  - cat modules/python_bindings_generator/pyopencv_generated_funcs.h
+  - #cat modules/python_bindings_generator/pyopencv_generated_funcs.h
   - #cat modules/java/jar/opencv/java/org/opencv/calib3d/Calib3d.java
   - #cat modules/java/gen/face+MACE.java
   - #echo run java tests
