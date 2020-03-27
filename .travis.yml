@@ -43,7 +43,7 @@ script:
   - #python ../modules/ts/misc/run.py . -t java
   - cd ..
   - cd ..
-  - wget https://drive.google.com/open?id=15EsVuuDd2gHN9uBN70NDaglX4as2UwyC -O crnn.onnx
+  - curl https://drive.google.com/uc?export=dowload&id=15EsVuuDd2gHN9uBN70NDaglX4as2UwyC > crnn.onnx
   - ls -l
   - make
   - #g++ -I/usr/local/include -L/usr/local/lib crnn.cpp -lopencv_core -lopencv_dnn -lopencv_imgproc -lopencv_imgcodecs -o crnn
