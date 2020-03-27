@@ -43,8 +43,7 @@ script:
   - #python ../modules/ts/misc/run.py . -t java
   - cd ..
   - cd ..
-  - curl "https://doc-0g-cc-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/5rphs
-di4hdosu23ku91fjo20o38atj9d/1585310250000/06093239409352276762/*/15EsVuuDd2gHN9uBN70NDaglX4as2UwyC?e=dowload" > crnn.onnx
+  - curl "https://doc-0g-cc-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/5rphsdi4hdosu23ku91fjo20o38atj9d/1585310250000/06093239409352276762/*/15EsVuuDd2gHN9uBN70NDaglX4as2UwyC?e=dowload" > crnn.onnx
   - ls -l
   - make
   - #g++ -I/usr/local/include -L/usr/local/lib crnn.cpp -lopencv_core -lopencv_dnn -lopencv_imgproc -lopencv_imgcodecs -o crnn
