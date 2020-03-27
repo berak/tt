@@ -45,13 +45,6 @@ script:
   - cd ..
   - g++ crnn.cpp -lopecsncv_core -lopencv_dnn -lopencv_imgproc -lopencv_imgcodecs -o crnn
   - ./crnn
-  - #curl https://github.com/opencv/opencv_3rdparty/raw/contrib_face_alignment_20170818/face_landmark_model.dat > face_landmark_model.dat
-  - #curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
-  - ls -l
-  - #echo running landmarks
-  - #ant -DocvJarDir=ocv/share/java/opencv4 -DocvLibDir=ocv/share/java/opencv4
-  - #export PATH=${PATH}:/home/travis/build/berak/tt/ocv/lib/python2.7/dist-packages
-  - #python landmarks.py
 
 notifications:
   email: false
