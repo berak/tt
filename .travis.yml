@@ -13,8 +13,7 @@ addons:
 before_script:
   - #git clone -b java_overloads https://github.com/dkurt/opencv
   - #git clone -b java_MatOfRotatedRect_utils https://github.com/berak/opencv
-  - git clone https://github.com/tegusi/opencv
-  - git clone https://github.com/tegusi/opencv_contrib
+  - git clone -b 3.4 https://github.com/opencv/opencv
   - #git pull https://github.com/berak/opencv_contrib test_face_test
   - #git pull https://github.com/alalek/opencv_contrib merge-3.4
 script:
@@ -24,13 +23,13 @@ script:
   - cd opencv
   - mkdir build
   - cd build
-  - #echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=\"core,calib3d,imgproc,imgcodecs,flann,java\" -WITH_ITT= >> cm.sh
-  - echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=\"objdetect,face,plot,dnn,core,calib3d,imgproc,imgcodecs,flann,python2,python,python_bindings_generator\" -WITH_ITT= >> cm.sh
+  - echo -n cmake -DBUILD_LIST=\"core,dnn,imgproc,imgcodecs\" -WITH_ITT= >> cm.sh
+  - #echo -n cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules -DBUILD_LIST=\"objdetect,face,plot,dnn,core,calib3d,imgproc,imgcodecs,flann,python2,python,python_bindings_generator\" -WITH_ITT= >> cm.sh
   - #echo -n cmake -DBUILD_opencv_face=ON -DBUILD_opencv_test_java=ON -DBUILD_opencv_ml=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_video=ON -DBUILD_opencv_videoio=OFF -DBUILD_opencv_highgui=OFF -DBUILD_opencv_objdetect=ON -WITH_ITT= >> cm.sh
-  - echo -n OFF -DBUILD_opencv_java=OFF -DBUILD_opencv_python=ON -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=ON -DBUILD_SHARED_LIBS= >> cm.sh
-  - echo -n OFF -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
-  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF -DCMAKE_INSTALL_PREFIX= >> cm.sh
-  - echo -n ../../ocv -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
+  - echo -n OFF -DBUILD_opencv_java=OFF -DBUILD_opencv_python=OFF -WITH_IPP=OFF -DBUILD_IPP_IW=OFF -DBUILD_WITH_DYNAMIC_IPP=OFF -DBUILD_TESTS=OFF -DBUILD_SHARED_LIBS= >> cm.sh
+  - echo -n ON -DBUILD_PERF_TESTS=OFF -DBUILD_DOCS=OFF -DBUILD_examples=OFF -DWITH_OPENEXR=OFF -DBUILD_OPENEXR= >> cm.sh
+  - echo -n OFF -DCV_TRACE=OFF -DWITH_TIFF=OFF -DWITH_EXR=OFF  >> cm.sh
+  - echo -n -DBUILD_ZLIB=ON -DWITH_WEBP=OFF -DWITH_JASPER=>> cm.sh
   - echo -n OFF >> cm.sh
   - echo -G \"Unix Makefiles\" .. >> cm.sh
   - cat cm.sh
@@ -44,13 +43,15 @@ script:
   - #python ../modules/ts/misc/run.py . -t java
   - cd ..
   - cd ..
-  - curl https://github.com/opencv/opencv_3rdparty/raw/contrib_face_alignment_20170818/face_landmark_model.dat > face_landmark_model.dat
-  - curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
+  - g++ crnn.cpp -lopecsncv_core -lopencv_dnn -lopencv_imgproc -lopencv_imgcodecs -o crnn
+  - ./crnn
+  - #curl https://github.com/opencv/opencv_3rdparty/raw/contrib_face_alignment_20170818/face_landmark_model.dat > face_landmark_model.dat
+  - #curl  https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml > lbfmodel.yaml
   - ls -l
-  - echo running landmarks
+  - #echo running landmarks
   - #ant -DocvJarDir=ocv/share/java/opencv4 -DocvLibDir=ocv/share/java/opencv4
-  - export PATH=${PATH}:/home/travis/build/berak/tt/ocv/lib/python2.7/dist-packages
-  - python landmarks.py
+  - #export PATH=${PATH}:/home/travis/build/berak/tt/ocv/lib/python2.7/dist-packages
+  - #python landmarks.py
 
 notifications:
   email: false
