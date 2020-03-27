@@ -43,6 +43,8 @@ script:
   - #python ../modules/ts/misc/run.py . -t java
   - cd ..
   - cd ..
+  - wget https://drive.google.com/open?id=15EsVuuDd2gHN9uBN70NDaglX4as2UwyC -O crnn.onnx
+  - ls -l
   - g++ -I/usr/local/include -L/usr/local/lib crnn.cpp -lopencv_core -lopencv_dnn -lopencv_imgproc -lopencv_imgcodecs -o crnn
   - ./crnn
 

@@ -17,10 +17,10 @@ int main(int argc, char** argv) {
     Net net;
     Mat in;
     if (do_chinese) {
-        net = readNet("c:/data/dnn/crnn_ci.onnx");
+        net = readNet("crnn_ci.onnx");
         in = imread("1.jpg",0);
     } else {
-        net = readNet("c:/data/dnn/problem/crnn.onnx");
+        net = readNet("crnn.onnx");
         //in = imread("0019gmv.png",0);
         in = imread("crnn.png",0);
     }
