@@ -43,7 +43,7 @@ script:
   - #python ../modules/ts/misc/run.py . -t java
   - cd ..
   - cd ..
-  - g++ crnn.cpp -lopecsncv_core -lopencv_dnn -lopencv_imgproc -lopencv_imgcodecs -o crnn
+  - g++ -I/usr/local/include -L/usr/local/lib crnn.cpp -lopencv_core -lopencv_dnn -lopencv_imgproc -lopencv_imgcodecs -o crnn
   - ./crnn
 
 notifications:
